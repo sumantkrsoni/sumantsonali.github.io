@@ -1,0 +1,407 @@
+/* 1. GLOBAL RESET (Crucial Fix) */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #D4AF37; /* Gold */
+    --accent-color: #8b0000; /* Deep Red */
+    --bg-color: #fdfbf7;
+    --text-color: #333;
+    --font-script: 'Great Vibes', cursive;
+    --font-body: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    overflow-x: hidden; /* Prevents horizontal scroll on mobile */
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.logo {
+    font-family: var(--font-script);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* REPLACE THIS URL WITH YOUR PHOTO */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background1.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 0 20px; /* Prevents text hitting edges on mobile */
+}
+
+.hero h1 {
+    font-family: var(--font-script);
+    font-size: 5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+
+.hero .date {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+#countdown {
+    margin-top: 30px;
+    font-size: 1.5rem;
+    background: rgba(255,255,255,0.2);
+    padding: 15px 30px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* Events Timeline Section */
+#events {
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2 {
+    font-family: var(--font-script);
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    margin-bottom: 3rem;
+    font-style: italic;
+    color: #666;
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.event-card {
+    display: flex;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-left: 5px solid var(--primary-color);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-card.highlight {
+    border-left: 5px solid var(--accent-color);
+    background: #fff0f0;
+}
+
+.event-date {
+    background-color: #f4f4f4;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 90px;
+    border-right: 1px solid #eee;
+}
+
+.event-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.event-date .month {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+.event-details {
+    padding: 1.5rem;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.event-details h3 {
+    margin: 0 0 10px 0;
+    color: var(--accent-color);
+    font-family: var(--font-body);
+}
+
+.event-details p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Map Button */
+.map-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.map-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.event-card.highlight .map-btn {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.event-card.highlight .map-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* RSVP Form */
+#rsvp {
+    background: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#rsvp form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+input, select, button {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-body);
+    width: 100%;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #a00000;
+}
+
+/* Contact Section */
+.contact-box {
+    margin-top: 3rem;
+    border-top: 1px solid #eee;
+    padding-top: 2rem;
+}
+
+.contact-card {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid #e0e0e0;
+    margin-top: 10px;
+}
+
+.contact-card .role {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+.contact-card h3 {
+    margin: 5px 0 10px 0;
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
+
+.phone-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    padding: 8px 15px;
+    border: 1px dashed var(--accent-color);
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.phone-link:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-style: solid;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    background: #333;
+    color: white;
+    margin-top: auto;
+}
+
+/* GIANT ROSE PETAL ANIMATION */
+.giant-petal {
+    position: fixed;
+    top: -150px;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    opacity: 0.95;
+    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.3));
+}
+
+@keyframes fallSwayLeft {
+    0% { top: -150px; transform: translateX(0) rotate(0deg); }
+    100% { top: 110vh; transform: translateX(-150px) rotate(360deg); }
+}
+
+@keyframes fallSwayRight {
+    0% { top: -150px; transform: translateX(0) rotate(0deg); }
+    100% { top: 110vh; transform: translateX(150px) rotate(-360deg); }
+}
+
+.animate-sway-left { animation: fallSwayLeft linear forwards; }
+.animate-sway-right { animation: fallSwayRight linear forwards; }
+
+/* 2. MOBILE RESPONSIVE FIXES */
+@media (max-width: 768px) {
+    /* Stack the nav */
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav-links {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    /* Shrink the Hero Text */
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    /* Adjust Events for small screens */
+    .event-card {
+        flex-direction: column; /* Stack date on top of details */
+    }
+    .event-date {
+        flex-direction: row; /* Put Date and Month side by side */
+        gap: 10px;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+    }
+    .event-details {
+        text-align: center;
+    }
+}
+
+/* ... other hero styles ... */
+
+/* Lord Ganesha Circular Logo Style */
+.ganesha-logo {
+    width: 140px;  /* Controls the size of the circle */
+    height: 140px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    object-fit: contain; /* Ensures the image sits nicely inside */
+    
+    /* Festive Styling */
+    background-color: #fffbf0; /* Cream background */
+    border: 3px solid var(--primary-color); /* Gold border using your defined variable */
+    padding: 10px; /* Space between image and border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Soft shadow for depth */
+    
+    margin-bottom: 20px; /* Space between Ganesha and the names */
+    
+    /* Optional: Add a subtle animation */
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation to make it look divine */
+@keyframes float {
+	0% { transform: translateY(0px); }
+	50% { transform: translateY(-10px); }
+	100% { transform: translateY(0px); }
+}
+
+/* Adjust size for mobile phones so it doesn't take up too much space */
+@media (max-width: 768px) {
+    .ganesha-logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+}
