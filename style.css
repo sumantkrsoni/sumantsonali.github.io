@@ -25,14 +25,39 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+    align-items: center; /* This ensures the logo, image, and text are centered vertically */
+    padding: 0.5rem 2rem; /* Slightly reduced top/bottom padding to fit image */
     background: white;
     position: sticky;
     top: 0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     z-index: 1000;
 }
+
+
+/* NEW: Style for the center image */
+.nav-center-img {
+    height: 60px; /* Controls the size. Adjust this number (e.g., 50px or 80px) */
+    width: auto;  /* Maintains aspect ratio */
+    object-fit: contain;
+    
+    /* Optional: Add a subtle animation */
+    transition: transform 0.3s ease;
+}
+
+.nav-center-img:hover {
+    transform: scale(1.1); /* Grows slightly when hovered */
+}
+
+/* IMPORTANT: Mobile Responsiveness */
+@media (max-width: 768px) {
+    /* On phones, there isn't enough room for the image in the middle */
+    .nav-center-img {
+        display: none; /* We hide it on mobile to keep the menu clean */
+    }
+}
+
+
 
 .logo {
     font-family: var(--font-script);
@@ -403,5 +428,131 @@ footer {
         width: 100px;
         height: 100px;
         margin-bottom: 15px;
+    }
+}
+
+
+
+/* CONTACT SECTION REDESIGN */
+.contact-wrapper {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.help-text {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Soft, luxurious shadow */
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+    max-width: 500px;
+    width: 100%;
+    border-left: 5px solid var(--primary-color); /* Gold accent on left */
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px); /* Pops up slightly on hover */
+}
+
+/* Avatar Styling */
+.card-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f0f0f0;
+}
+
+/* Info Styling */
+.card-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.card-info .role {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.card-info h3 {
+    margin: 5px 0 15px 0;
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+/* Action Buttons Container */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Base Button Style */
+.btn-action {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+/* Call Button - Gold/Theme Color */
+.btn-action.call {
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-action.call:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* WhatsApp Button - Green */
+.btn-action.whatsapp {
+    background-color: #25D366;
+    color: white;
+    border: 1px solid #25D366;
+}
+
+.btn-action.whatsapp:hover {
+    background-color: #1ebc57;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+/* Mobile Responsiveness for Contact Card */
+@media (max-width: 480px) {
+    .contact-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    
+    .card-info {
+        text-align: center;
+    }
+    
+    .action-buttons {
+        justify-content: center;
     }
 }
