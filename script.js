@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const petalImages = [
         'petal1.png',
+        // 'petal2.png', // Add this if you have it
         'petal3.png'
     ];
 
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add class for styling
         img.classList.add('giant-petal');
 
-        // Random Size: HUGE (Between 60px and 120px)
+        // Random Size: Adjusted to 30px-60px per your code
         const minSize = 30;
         const maxSize = 60;
         const size = Math.random() * (maxSize - minSize) + minSize;
@@ -81,5 +82,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Start the flower shower
     setInterval(createGiantPetal, 700);
+
+
+// =========================================
+    // 3. MUSIC PLAYER LOGIC (Autoplay Workaround)
+    // =========================================
+    
+    const music = document.getElementById("wedding-music");
+    const musicBtn = document.getElementById("music-btn");
+    let isPlaying = false;
+
+    if (musicBtn && music) {
+        
+        // A. Button Click Logic
+        musicBtn.addEventListener('click', function(e) {
+            // Prevent the body click event from firing when clicking the button
+            e.stopPropagation(); 
+            
+            if (isPlaying) {
+                music.pause();
+                musicBtn.innerHTML = "🎵 Play Music";
+                isPlaying = false;
+            } else {
+                music.play();
+                musicBtn.innerHTML = "⏸ Pause Music";
+                isPlaying = true;
+            }
+        });
+
+        // B. "First Interaction" Autoplay Trick
+        // This attempts to play music as soon as the user clicks anywhere on the page
+        function startMusicOnInteraction() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.innerHTML = "⏸ Pause Music";
+                    // Remove listener so it doesn't keep trying
+                    document.body.removeEventListener('click', startMusicOnInteraction);
+                    document.body.removeEventListener('touchstart', startMusicOnInteraction); 
+                    document.body.removeEventListener('scroll', startMusicOnInteraction); 
+                }).catch(error => {
+                    console.log("Autoplay blocked, waiting for button click.");
+                });
+            }
+        }
+
+        // Listen for any interaction (click, touch, or scroll)
+        document.body.addEventListener('click', startMusicOnInteraction);
+        document.body.addEventListener('touchstart', startMusicOnInteraction); 
+        
+        // Also try standard autoplay just in case the browser allows it (rare, but possible)
+        music.play().then(() => {
+            isPlaying = true;
+            musicBtn.innerHTML = "⏸ Pause Music";
+        }).catch(() => {
+            // Silently fail if blocked, waiting for interaction above
+        });
+    }
 
 });

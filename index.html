@@ -17,6 +17,15 @@
 
 <body>
 
+    <audio id="wedding-music" loop autoplay>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <button id="music-btn" onclick="toggleMusic()">
+        🎵 Play Music
+    </button>
+
     <nav>
         <div class="logo">Sumant & Sonali</div>
 
@@ -25,7 +34,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#events">Events</a></li>
-        </ul>
+            <li><a href="#rsvp">Contact</a></li> </ul>
     </nav>
 
     <section id="home" class="hero">
@@ -52,7 +61,7 @@
                     <h3>Tilakotsav</h3>
                     <p class="time">06:00 PM</p>
                     <p class="location">Lesliganj, Palamau</p>
-                    <a href="https://www.google.com/maps/place/24%C2%B002'35.8%22N+84%C2%B012'32.8%22E/@24.0435763,84.2089357,19.09z/data=!4m12!1m7!3m6!1s0x398c7f0062a65617:0x8f9a081595f1e020!2sPurana+bazar+lesliganj!8m2!3d24.0376814!4d84.2094347!16s%2Fg%2F11vx6b_tcc!3m3!8m2!3d24.043267!4d84.209114?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">View Map</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lesliganj+Palamau" target="_blank" class="map-btn">View Map</a>
                 </div>
             </div>
 
@@ -66,7 +75,7 @@
                     <h3>Mandwa</h3>
                     <p class="time">06:00 PM</p>
                     <p class="location">Lesliganj, Palamau</p>
-                    <a href="https://www.google.com/maps/place/24%C2%B002'35.8%22N+84%C2%B012'32.8%22E/@24.0435763,84.2089357,19.09z/data=!4m12!1m7!3m6!1s0x398c7f0062a65617:0x8f9a081595f1e020!2sPurana+bazar+lesliganj!8m2!3d24.0376814!4d84.2094347!16s%2Fg%2F11vx6b_tcc!3m3!8m2!3d24.043267!4d84.209114?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">View Map</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lesliganj+Palamau" target="_blank" class="map-btn">View Map</a>
                 </div>
             </div>
 
@@ -80,7 +89,7 @@
                     <h3>Mehandi</h3>
                     <p class="time">06:00 PM</p>
                     <p class="location">Lesliganj, Palamau</p>
-                    <a href="https://www.google.com/maps/place/24%C2%B002'35.8%22N+84%C2%B012'32.8%22E/@24.0435763,84.2089357,19.09z/data=!4m12!1m7!3m6!1s0x398c7f0062a65617:0x8f9a081595f1e020!2sPurana+bazar+lesliganj!8m2!3d24.0376814!4d84.2094347!16s%2Fg%2F11vx6b_tcc!3m3!8m2!3d24.043267!4d84.209114?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="map-btn">View Map</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lesliganj+Palamau" target="_blank" class="map-btn">View Map</a>
                 </div>
             </div>
 
@@ -93,14 +102,13 @@
                 <div class="event-details">
                     <h3>Barat & Wedding</h3>
                     <p class="time">04:00 PM</p>
-                    <p class="location">Barat Departure from <a href="https://www.google.com/maps/place/24%C2%B002'35.8%22N+84%C2%B012'32.8%22E/@24.0435763,84.2089357,19.09z/data=!4m12!1m7!3m6!1s0x398c7f0062a65617:0x8f9a081595f1e020!2sPurana+bazar+lesliganj!8m2!3d24.0376814!4d84.2094347!16s%2Fg%2F11vx6b_tcc!3m3!8m2!3d24.043267!4d84.209114?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">Lesliganj</a>
-                        
-                        Purana Bazar to
-                        
-                        <a href="https://www.google.com/maps/search/?api=1&query=Shagun+Hotel+and+Banquet+Garhwa" >Shagun Banquate Hall, Garhwa</a>
-                        
-                        </p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Shagun+Hotel+and+Banquet+Garhwa" target="_blank" class="map-btn">View Map</a>
+                    <p class="location">
+                        Departure from: <br>
+                        <strong>Purana Bazar, Lesliganj</strong> <br>
+                        to <br>
+                        <strong>Shagun Banquet Hall, Garhwa</strong>
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Shagun+Hotel+and+Banquet+Garhwa" target="_blank" class="map-btn">View Destination Map</a>
                 </div>
             </div>
 
@@ -108,12 +116,13 @@
                 <div class="event-date">
                     <span class="day">Day 5</span>
                     <span class="day">12 Feb</span>
-                    <span class="month">Thursday</span> </div>
+                    <span class="month">Thursday</span> 
+                </div>
                 <div class="event-details">
                     <h3>Grand Reception</h3>
                     <p class="time">07:00 PM onwards</p>
                     <p class="location">Purana Bazar, Lesliganj, Palamau</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Purana+Bazar+Lesliganj" target="_blank" class="map-btn">View Map</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Lesliganj+Palamau" target="_blank" class="map-btn">View Map</a>
                 </div>
             </div>
         </div>
@@ -125,16 +134,16 @@
             
             <div class="contact-card">
                 <div class="card-avatar">
-                    <img src="https://cdn-icons-png.flaticon.com/512/4128/4128176.png" alt="Sandeep Kumar">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4128/4128176.png" alt="Wedding Coordinator">
                 </div>
                 
                 <div class="card-info">
-                    <span class="role">Wedding Coordinator (Elder Brothers)</span>
-                    <h3>Dr. Saurav & Mr. Sandeep [9097119097]</h3>
+                    <span class="role">Wedding Coordinators (Brothers)</span>
+                    <h3>Dr. Saurav & Mr. Sandeep</h3>
                     
                     <div class="action-buttons">
                         <a href="tel:+919097119097" class="btn-action call">
-                            📞 Call Now
+                            📞 Call Sandeep
                         </a>
                         
                         <a href="https://wa.me/919097119097?text=Hi%20Sandeep,%20I%20have%20a%20question%20about%20the%20wedding." target="_blank" class="btn-action whatsapp">
