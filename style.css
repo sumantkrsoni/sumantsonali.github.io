@@ -1,18 +1,25 @@
 /* =========================================
    1. GLOBAL RESET & VARIABLES
    ========================================= */
+/* IMPORT HINDI FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Rozha+One&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 :root {
-    --primary-color: #D4AF37; /* Gold */
-    --accent-color: #8b0000; /* Deep Red */
-    --bg-color: #fdfbf7;      /* Cream/Off-white */
+    --primary-color: #D4AF37;
+    --accent-color: #8b0000;
+    --bg-color: #fdfbf7;
     --text-color: #333;
-    --font-script: 'Great Vibes', cursive;
-    --font-body: 'Lato', sans-serif;
+    
+    /* NEW HINDI FONT SETTINGS */
+    --font-script: 'Rozha One', serif; /* Bold, Traditional look for Headings */
+    --font-body: 'Poppins', sans-serif; /* Clean look for details */
 }
+
+/* ... The rest of your CSS remains the same ... */
 
 body {
     margin: 0;
@@ -493,4 +500,61 @@ footer {
     .action-buttons {
         justify-content: center;
     }
+}
+
+/* Styling for the 3-Line Wedding Title */
+.main-title {
+    font-family: var(--font-script);
+    font-size: 4.5rem; /* Slightly smaller to fit 3 lines better */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column; /* Forces 3 distinct lines */
+    gap: 5px;
+}
+
+/* The middle word "Sang" */
+.connector {
+    font-family: var(--font-body); /* Use the simpler font */
+    font-size: 1.8rem; /* Much smaller than names */
+    color: #f0f0f0; /* Slightly softer white */
+    font-weight: 300;
+    margin: 5px 0;
+    display: block;
+    position: relative;
+}
+
+/* Add stylish lines beside "Sang" (Optional decoration) */
+.connector::before, .connector::after {
+    content: "—";
+    color: var(--primary-color);
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+/* Mobile Adjustments for 3 lines */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem; /* Smaller on phones so it fits */
+        line-height: 1.2;
+    }
+    .connector {
+        font-size: 1.2rem;
+    }
+}
+
+footer {
+    padding: 3rem 1rem;
+    background: #333; /* Dark background */
+    color: #d4af37;   /* Gold Text */
+    text-align: center;
+    border-top: 5px solid #8b0000; /* Red top border */
+}
+
+.footer-text {
+    font-family: var(--font-script); /* Uses the Rozha One font */
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 1px;
 }

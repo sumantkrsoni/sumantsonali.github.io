@@ -20,12 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Safety check: ensure element exists before writing to it
         if (countdownElement) {
+            // Updated to Hindi labels (din, ghante, min, sec) if you want, 
+            // or keep English letters (d, h, m, s) as they are standard.
             countdownElement.innerHTML = 
                 days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
             
             if (distance < 0) {
                 clearInterval(x);
-                countdownElement.innerHTML = "Happily Married!";
+                // CHANGE 1: Hindi Message when countdown ends
+                countdownElement.innerHTML = "शुभ विवाह संपन्न!"; 
             }
         }
     }, 1000);
@@ -38,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const petalImages = [
         'petal1.png',
-        // 'petal2.png', // Add this if you have it
+        // 'petal2.png', 
         'petal3.png'
     ];
 
@@ -84,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(createGiantPetal, 700);
 
 
-// =========================================
+    // =========================================
     // 3. MUSIC PLAYER LOGIC (Autoplay Workaround)
     // =========================================
     
@@ -96,28 +99,30 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // A. Button Click Logic
         musicBtn.addEventListener('click', function(e) {
-            // Prevent the body click event from firing when clicking the button
             e.stopPropagation(); 
             
             if (isPlaying) {
                 music.pause();
-                musicBtn.innerHTML = "🎵 Play Music";
+                // CHANGE 2: Hindi Button Text
+                musicBtn.innerHTML = "🎵 संगीत"; 
                 isPlaying = false;
             } else {
                 music.play();
-                musicBtn.innerHTML = "⏸ Pause Music";
+                // CHANGE 3: Hindi Button Text
+                musicBtn.innerHTML = "⏸ रोकें";
                 isPlaying = true;
             }
         });
 
         // B. "First Interaction" Autoplay Trick
-        // This attempts to play music as soon as the user clicks anywhere on the page
         function startMusicOnInteraction() {
             if (!isPlaying) {
                 music.play().then(() => {
                     isPlaying = true;
-                    musicBtn.innerHTML = "⏸ Pause Music";
-                    // Remove listener so it doesn't keep trying
+                    // Hindi Text
+                    musicBtn.innerHTML = "⏸ रोकें";
+                    
+                    // Remove listeners so it doesn't keep trying
                     document.body.removeEventListener('click', startMusicOnInteraction);
                     document.body.removeEventListener('touchstart', startMusicOnInteraction); 
                     document.body.removeEventListener('scroll', startMusicOnInteraction); 
@@ -130,13 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Listen for any interaction (click, touch, or scroll)
         document.body.addEventListener('click', startMusicOnInteraction);
         document.body.addEventListener('touchstart', startMusicOnInteraction); 
+        // CHANGE 4: Added Scroll listener here (it was missing in your add list)
+        document.body.addEventListener('scroll', startMusicOnInteraction); 
         
-        // Also try standard autoplay just in case the browser allows it (rare, but possible)
+        // Also try standard autoplay just in case
         music.play().then(() => {
             isPlaying = true;
-            musicBtn.innerHTML = "⏸ Pause Music";
+            musicBtn.innerHTML = "⏸ रोकें";
         }).catch(() => {
-            // Silently fail if blocked, waiting for interaction above
+            // Silently fail if blocked
         });
     }
 
