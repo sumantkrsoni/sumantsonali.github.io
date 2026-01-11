@@ -558,3 +558,34 @@ footer {
     line-height: 1.6;
     letter-spacing: 1px;
 }
+
+/* Styling for the sentence "Hum [Date] ko..." */
+.wedding-text {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white; /* White text for the main sentence */
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+/* Styling specifically for the Date inside the sentence */
+.highlight-date {
+    color: var(--primary-color); /* Gold color */
+    font-weight: bold;
+    font-size: 1.5rem; /* Slightly larger than the rest of the sentence */
+    padding: 0 5px; /* Adds a little breathing room around the date */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    display: inline-block; /* Keeps it on the same line but allows sizing */
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .wedding-text {
+        font-size: 1.1rem;
+        padding: 0 10px; /* Prevents text touching screen edges */
+    }
+    .highlight-date {
+        font-size: 1.3rem;
+    }
+}
