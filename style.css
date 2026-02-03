@@ -19,8 +19,6 @@
     --font-body: 'Poppins', sans-serif; /* Clean look for details */
 }
 
-/* ... The rest of your CSS remains the same ... */
-
 body {
     margin: 0;
     font-family: var(--font-body);
@@ -126,25 +124,6 @@ nav {
     line-height: 1.2;
 }
 
-.hero .date {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    letter-spacing: 2px;
-}
-
-#countdown {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    background: rgba(255,255,255,0.2);
-    padding: 15px 30px;
-    border-radius: 50px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.4);
-    color: #ff4d4d; /* Bright Red Text */
-    font-weight: bold;
-    text-shadow: 1px 1px 2px white;
-}
-
 /* =========================================
    4. EVENTS TIMELINE
    ========================================= */
@@ -191,30 +170,6 @@ h2 {
 .event-card.highlight {
     border-left: 5px solid var(--accent-color);
     background: #fff0f0;
-}
-
-.event-date {
-    background-color: #f4f4f4;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 90px;
-    border-right: 1px solid #eee;
-}
-
-.event-date .day {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.event-date .month {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: #777;
-    letter-spacing: 1px;
 }
 
 .event-details {
@@ -333,7 +288,7 @@ h2 {
 .card-info h3 {
     margin: 5px 0 15px 0;
     color: var(--text-color);
-    font-size: 1.2rem; /* Adjusted slightly for long names */
+    font-size: 1.2rem;
 }
 
 .action-buttons {
@@ -442,14 +397,13 @@ footer {
    7. MOBILE RESPONSIVENESS
    ========================================= */
 @media (max-width: 768px) {
-    /* Stack the nav */
     nav {
         flex-direction: column;
         padding: 1rem;
     }
     
     .nav-center-img {
-        display: none; /* Hide center image on mobile */
+        display: none;
     }
 
     .nav-links {
@@ -459,7 +413,6 @@ footer {
         gap: 15px;
     }
     
-    /* Shrink the Hero Text */
     .hero h1 {
         font-size: 3.5rem;
     }
@@ -470,23 +423,14 @@ footer {
         margin-bottom: 15px;
     }
     
-    /* Adjust Events for small screens */
     .event-card {
         flex-direction: column;
     }
-    .event-date {
-        flex-direction: row;
-        gap: 10px;
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #eee;
-        padding: 10px;
-    }
+
     .event-details {
         text-align: center;
     }
 
-    /* Adjust Contact Card for Mobile */
     .contact-card {
         flex-direction: column;
         text-align: center;
@@ -502,30 +446,27 @@ footer {
     }
 }
 
-/* Styling for the 3-Line Wedding Title */
 .main-title {
     font-family: var(--font-script);
-    font-size: 4.5rem; /* Slightly smaller to fit 3 lines better */
+    font-size: 4.5rem;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     line-height: 1.1;
     display: flex;
-    flex-direction: column; /* Forces 3 distinct lines */
+    flex-direction: column;
     gap: 5px;
 }
 
-/* The middle word "Sang" */
 .connector {
-    font-family: var(--font-body); /* Use the simpler font */
-    font-size: 1.8rem; /* Much smaller than names */
-    color: #f0f0f0; /* Slightly softer white */
+    font-family: var(--font-body);
+    font-size: 1.8rem;
+    color: #f0f0f0;
     font-weight: 300;
     margin: 5px 0;
     display: block;
     position: relative;
 }
 
-/* Add stylish lines beside "Sang" (Optional decoration) */
 .connector::before, .connector::after {
     content: "—";
     color: var(--primary-color);
@@ -533,10 +474,9 @@ footer {
     font-weight: bold;
 }
 
-/* Mobile Adjustments for 3 lines */
 @media (max-width: 768px) {
     .main-title {
-        font-size: 3rem; /* Smaller on phones so it fits */
+        font-size: 3rem;
         line-height: 1.2;
     }
     .connector {
@@ -546,46 +486,40 @@ footer {
 
 footer {
     padding: 3rem 1rem;
-    background: #333; /* Dark background */
-    color: #d4af37;   /* Gold Text */
+    background: #333;
+    color: #d4af37;
     text-align: center;
-    border-top: 5px solid #8b0000; /* Red top border */
+    border-top: 5px solid #8b0000;
 }
 
 .footer-text {
-    font-family: var(--font-script); /* Uses the Rozha One font */
+    font-family: var(--font-script);
     font-size: 1.2rem;
     line-height: 1.6;
     letter-spacing: 1px;
 }
 
-/* Styling for the sentence "Hum [Date] ko..." */
-.wedding-text {
-    font-size: 1.3rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: white; /* White text for the main sentence */
-    letter-spacing: 1px;
-    line-height: 1.6;
+/* =========================================
+   8. DATE ALERT HIGHLIGHT (Updated Size)
+   ========================================= */
+.date-alert {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffeeba;
+    /* INCREASED SIZE HERE */
+    padding: 40px; 
+    margin: 30px auto; 
+    border-radius: 8px;
+    font-weight: 900; 
+    font-size: 1.6rem; 
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    animation: pulse 2s infinite;
 }
 
-/* Styling specifically for the Date inside the sentence */
-.highlight-date {
-    color: var(--primary-color); /* Gold color */
-    font-weight: bold;
-    font-size: 1.5rem; /* Slightly larger than the rest of the sentence */
-    padding: 0 5px; /* Adds a little breathing room around the date */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-    display: inline-block; /* Keeps it on the same line but allows sizing */
-}
-
-/* Mobile Adjustment */
-@media (max-width: 768px) {
-    .wedding-text {
-        font-size: 1.1rem;
-        padding: 0 10px; /* Prevents text touching screen edges */
-    }
-    .highlight-date {
-        font-size: 1.3rem;
-    }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
 }
